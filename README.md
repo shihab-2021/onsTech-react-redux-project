@@ -4,7 +4,7 @@ This project's live website link [onsTech](https://onstech-f53ad.web.app/).
 
 ## All About This Project
 
-This project is based on car selling e-commerce. All the feathers of this project or website discussed down below:
+This project is based on laptop selling e-commerce. All the feathers of this project or website discussed down below:
 
 The important technologies that are used to make this project are:
 React-redux, React js, Firebase, MongoDB, Node js(for backend), Heroku, Material UI, Bootstrap and so on.
