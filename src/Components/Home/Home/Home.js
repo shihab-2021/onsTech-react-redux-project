@@ -20,7 +20,7 @@ const Home = () => {
         <ProductListing />
         <div className="d-flex align-items-center">
           <Link to="/productExplore" className="text-center mx-auto mb-4">
-            <SvgButton>
+            <SvgButton className="text-secondary banner-description">
               See all <i className="fa-solid fa-arrow-right"></i>
             </SvgButton>
           </Link>
@@ -33,7 +33,12 @@ const Home = () => {
         <ShowReview></ShowReview>
       </div>
       <div className="py-5">
-        <h1 className="text-center heading pb-3">OUR PARTNERSHIP BRANDS</h1>
+        <h1
+          style={{ color: "darkslateblue" }}
+          className="text-center heading pb-3"
+        >
+          OUR PARTNERSHIP BRANDS
+        </h1>
         <Brands></Brands>
       </div>
       <div>

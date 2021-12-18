@@ -42,9 +42,6 @@ const Banner = () => {
           Shop Online Today!
         </h5>
         <Link style={{ textDecoration: "none" }} to="/about">
-          {/* <Button sx={{ bgcolor: "salmon" }} variant="contained">
-            About us
-          </Button> */}
           <SvgButton className="text-info banner-description">
             About us
           </SvgButton>
