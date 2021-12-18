@@ -6,7 +6,7 @@ const ShowReview = () => {
   const [reviews, setReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    fetch("https://sleepy-taiga-46834.herokuapp.com/reviews")
+    fetch("https://arcane-oasis-37685.herokuapp.com/reviews")
       .then((res) => res.json())
       .then((data) => setReviews(data))
       .then(() => setIsLoading(false));
@@ -24,9 +24,9 @@ const ShowReview = () => {
         )}
         {reviews[0] && (
           <div className="container">
-            <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-5 py-5">
+            <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 py-5">
               {reviews.map((review) => (
-                <div key={review._id} className="col">
+                <div key={review._id} className="col my-4">
                   <div style={{ minHeight: "400px" }} className="card shadow">
                     <div className="card-body">
                       <div className="review-card">

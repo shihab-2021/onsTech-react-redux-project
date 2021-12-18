@@ -27,7 +27,7 @@ const Review = () => {
           : "https://christopherscottedwards.com/wp-content/uploads/2018/07/Generic-Profile.jpg"
       }`,
     };
-    fetch("https://sleepy-taiga-46834.herokuapp.com/reviews", {
+    fetch("https://arcane-oasis-37685.herokuapp.com/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -9,6 +9,7 @@ import { Carousel } from "react-bootstrap";
 // import useAuth from "../../../../Hooks/useAuth";
 // import Carousel from "../Carousel/Carousel";
 import "./Banner.css";
+import SvgButton from "./SvgButton";
 
 const Banner = () => {
   //   const { user } = useAuth();
@@ -40,8 +41,13 @@ const Banner = () => {
           Order Now! Global Brands Coverage. 100% On-time Shipment Protection.
           Shop Online Today!
         </h5>
-        <Link to="/about">
-          <button className="btn btn-danger">About us</button>
+        <Link style={{ textDecoration: "none" }} to="/about">
+          {/* <Button sx={{ bgcolor: "salmon" }} variant="contained">
+            About us
+          </Button> */}
+          <SvgButton className="text-info banner-description">
+            About us
+          </SvgButton>
         </Link>
       </div>
       <div className="row align-items-center container mx-auto">
@@ -64,15 +70,19 @@ const Banner = () => {
           </h6>
         </div>
       </div>
-      <div className="d-flex align-items-center justify-content-center">
-        <div>
-          <img className="img-fluid" src={chromebook_banner} alt="" />
-          <h4>Google Chrome</h4>
-          <h6>
-            <a className="visit-store" href="/">
-              <small>Visit the Google store {">"}</small>
-            </a>
-          </h6>
+      <div className="container">
+        <div className="d-flex align-items-center justify-content-center">
+          <div>
+            <img className="img-fluid px-2" src={chromebook_banner} alt="" />
+            <div className="px-3">
+              <h4>Google Chrome</h4>
+              <h6>
+                <a className="visit-store" href="/">
+                  <small>Visit the Google store {">"}</small>
+                </a>
+              </h6>
+            </div>
+          </div>
         </div>
       </div>
     </div>

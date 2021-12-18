@@ -28,7 +28,7 @@ const Footer = () => {
                   <span className="text-danger">o</span>
                   <span className="text-warning">n</span>
                   <span className="text-info">s</span>
-                  <span className="text-success">Auto </span>
+                  <span className="text-success">Tech </span>
                   <span className="text-light">&copy; 2021</span>
                 </h5>
               </div>

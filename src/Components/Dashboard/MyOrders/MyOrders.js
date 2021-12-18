@@ -7,7 +7,7 @@ const MyOrders = () => {
   const [userOrders, setUserOrders] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    const url = `https://sleepy-taiga-46834.herokuapp.com/booking?email=${user.email}`;
+    const url = `https://arcane-oasis-37685.herokuapp.com/booking?email=${user.email}`;
     fetch(url, {
       headers: {
         authorization: `Bearer ${token}`,
@@ -21,7 +21,7 @@ const MyOrders = () => {
   const handleDeleteUserService = (id) => {
     const proceed = window.confirm("Are you sure, you want to delete?", id);
     if (proceed) {
-      const url = `https://sleepy-taiga-46834.herokuapp.com/booking/${id}`;
+      const url = `https://arcane-oasis-37685.herokuapp.com/booking/${id}`;
       fetch(url, {
         method: "DELETE",
       })
@@ -65,17 +65,17 @@ const MyOrders = () => {
               <div className="row g-0">
                 <div className="col-md-4 d-flex align-items-center">
                   <img
-                    src={userOrder.car_Detail.image}
-                    className="img-fluid rounded-pill p-2"
+                    src={userOrder.product_Detail?.image1}
+                    className="img-fluid p-2"
                     alt="..."
                   />
                 </div>
                 <div className="col-md-8">
                   <div className="card-body">
                     <h5 className="card-title fw-bold">
-                      {userOrder.car_Detail.car_name}
+                      {userOrder.product_Detail?.product_name?.slice(0, 50)} ...
                     </h5>
-                    <h6>PRICE: ${userOrder.car_Detail.car_price}</h6>
+                    <h6>PRICE: ${userOrder.product_Detail?.product_price}</h6>
                     <p
                       className="border border-warning rounded-pill d-inline p-1"
                       style={{ backgroundColor: "#dbe3e3" }}
@@ -97,7 +97,7 @@ const MyOrders = () => {
                       </div>
                       <div>
                         <Link
-                          to={`/details/${userOrder.car_Detail._id}`}
+                          to={`/details/${userOrder.product_Detail?._id}`}
                           className="w-50 text-center my-2 link me-2"
                         >
                           <button className="btn btn-outline-info">

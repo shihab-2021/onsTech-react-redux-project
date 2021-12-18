@@ -8,6 +8,7 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import SvgButton from "../../Home/Banner/SvgButton";
 import useAuth from "../../Hooks/useAuth";
 
 const Login = () => {
@@ -68,18 +69,15 @@ const Login = () => {
             variant="standard"
           />
 
-          <Button
-            sx={{ width: "95%", m: 1 }}
-            style={{
-              backgroundColor: "crimson",
-            }}
-            type="submit"
-            variant="contained"
-          >
-            Login
-          </Button>
+          <div className="d-flex justify-content-center my-3">
+            <Button type="submit">
+              <SvgButton className="text-info banner-description">
+                Login
+              </SvgButton>
+            </Button>
+          </div>
           <NavLink style={{ textDecoration: "none" }} to="/register">
-            <Button variant="text">New User? Please Register</Button>
+            <Button variant="text">New User? Please Register...</Button>
           </NavLink>
           {isLoading && <CircularProgress />}
           {user?.email && <Alert severity="success">Login successfully!</Alert>}

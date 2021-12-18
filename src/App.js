@@ -5,23 +5,22 @@ import Header from "./Components/Home/Header/Header";
 import Home from "./Components/Home/Home/Home";
 import Dashboard from "./Components/Dashboard/Dashboard/Dashboard";
 import AddAProduct from "./Components/Dashboard/AddAProduct/AddAProduct";
-import ProductListing from "./Components/ProductListing/ProductListing";
 import Details from "./Components/Details/Details";
 import PrivateRoute from "./Components/Login/PrivateRoute/PrivateRoute";
 import Login from "./Components/Login/Login/Login";
 import AdminRoute from "./Components/Login/AdminRoute/AdminRoute";
 import AuthProvider from "./Components/Contexts/AuthProvider/AuthProvider";
-import useAuth from "./Components/Hooks/useAuth";
 import ManageProducts from "./Components/Dashboard/ManageProducts/ManageProducts";
 import MyOrders from "./Components/Dashboard/MyOrders/MyOrders";
 import Pay from "./Components/Dashboard/Pay/Pay";
 import Review from "./Components/Dashboard/Review/Review";
 import MakeAdmin from "./Components/Dashboard/MakeAdmin/MakeAdmin";
 import ManageAllOrders from "./Components/Dashboard/ManageAllOrders/ManageAllOrders";
-import Footer from "./Components/Home/Footer/Footer";
+import Register from "./Components/Login/Register/Register";
+import ProductExplore from "./Components/ProductExplore/ProductExplore";
+import NotFound from "./Components/NotFound/NotFound";
 
 function App() {
-  let { admin } = useAuth();
   return (
     <AuthProvider>
       <BrowserRouter>
@@ -30,7 +29,16 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/productListing" element={<ProductListing />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="*" element={<NotFound />} />
+          <Route
+            path="/productExplore"
+            element={
+              <PrivateRoute>
+                <ProductExplore />
+              </PrivateRoute>
+            }
+          />
           <Route path="/details/:productId" element={<Details />} />
           <Route
             path="/dashboard"
@@ -66,7 +74,6 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
-      <Footer></Footer>
     </AuthProvider>
   );
 }

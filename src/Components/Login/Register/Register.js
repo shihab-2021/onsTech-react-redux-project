@@ -7,13 +7,12 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
-import { NavLink, useHistory } from "react-router-dom";
-import useAuth from "../../../Hooks/useAuth";
-import Navigation from "../../Shared/Navigation/Navigation";
+import { NavLink, useNavigate } from "react-router-dom";
+import useAuth from "../../Hooks/useAuth";
 
 const Register = () => {
   const [loginData, setLoginData] = useState({});
-  const history = useHistory();
+  const history = useNavigate();
   const { user, registerUser, isLoading, authError } = useAuth();
 
   const handleOnBlur = (e) => {
@@ -36,7 +35,6 @@ const Register = () => {
 
   return (
     <>
-      <Navigation></Navigation>
       <Container>
         {!isLoading && (
           <form
@@ -92,7 +90,7 @@ const Register = () => {
             <Button
               sx={{ width: "95%", m: 1 }}
               style={{
-                backgroundColor: "crimson",
+                backgroundColor: "ThreeDShadow",
               }}
               type="submit"
               variant="contained"

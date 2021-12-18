@@ -10,11 +10,26 @@ import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
-import { AppBar, IconButton, Toolbar, Typography } from "@mui/material";
+import { AppBar, Badge, IconButton, Toolbar, Typography } from "@mui/material";
 import { Link, NavLink } from "react-router-dom";
 import "./Header.css";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import useAuth from "../../Hooks/useAuth";
+import SvgButton from "../Banner/SvgButton";
 
 export default function Header() {
+  const { user, logout, token } = useAuth();
+  const [userOrders, setUserOrders] = React.useState([]);
+  React.useEffect(() => {
+    const url = `https://arcane-oasis-37685.herokuapp.com/booking?email=${user.email}`;
+    fetch(url, {
+      headers: {
+        authorization: `Bearer ${token}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => setUserOrders(data));
+  }, [user.email, token]);
   const [state, setState] = React.useState({
     left: false,
   });
@@ -60,6 +75,27 @@ export default function Header() {
             </ListItemText>
           </ListItem>
         </Link>
+        <Link
+          style={{ textDecoration: "none", color: "#1c7876" }}
+          to="/productExplore"
+        >
+          <ListItem button>
+            <ListItemText>
+              <span className="fw-bold">
+                <i className="fas fa-chart-line"></i>Explore
+              </span>
+            </ListItemText>
+          </ListItem>
+        </Link>
+        {user.email && (
+          <ListItem button onClick={logout}>
+            <ListItemText className="fw-bold" style={{ color: "#1c7876" }}>
+              <span className="fw-bold">
+                <i class="fas fa-sign-out-alt"></i> Logout
+              </span>
+            </ListItemText>
+          </ListItem>
+        )}
       </List>
     </Box>
   );
@@ -77,6 +113,22 @@ export default function Header() {
                 <span className="text-success">Tech</span>
               </NavLink>
             </Typography>
+            <Badge
+              className="me-2"
+              badgeContent={userOrders.length}
+              color="error"
+            >
+              <Link to="/dashboard/myOrders">
+                <ShoppingCartIcon sx={{ color: "goldenrod" }} color="action" />
+              </Link>
+            </Badge>
+            {!user?.email && (
+              <Link style={{ textDecoration: "none" }} to="/login">
+                <SvgButton className="text-light banner-description">
+                  Login
+                </SvgButton>
+              </Link>
+            )}
             {["left"].map((anchor) => (
               <React.Fragment key={anchor}>
                 <Button color="inherit" onClick={toggleDrawer(anchor, true)}>
@@ -85,7 +137,6 @@ export default function Header() {
                     edge="start"
                     color="inherit"
                     aria-label="menu"
-                    sx={{ mr: 2 }}
                   >
                     <MenuIcon />
                   </IconButton>
