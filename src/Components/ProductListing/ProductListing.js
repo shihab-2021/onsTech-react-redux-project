@@ -20,7 +20,7 @@ const ProductListing = () => {
   }, []);
   return (
     <div className="container">
-      <div className="row row-cols-2 row-cols-md-4 row-cols-lg-5 g-2 py-5">
+      <div className="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-2 py-5">
         <Product />
       </div>
     </div>

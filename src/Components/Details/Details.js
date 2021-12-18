@@ -21,6 +21,7 @@ import "./Details.css";
 import HomeCarousel from "../Home/HomeCarousel/HomeCarousel";
 import Contact from "../Home/Contact/Contact";
 import Footer from "../Home/Footer/Footer";
+import SvgButton from "../Home/Banner/SvgButton";
 
 const Details = () => {
   const [image, setImage] = useState("");
@@ -227,12 +228,9 @@ const Details = () => {
                   />
                 </p>
                 <a href="#buyNow">
-                  <button
-                    type="button"
-                    className="align-self-center btn btn-outline-warning mx-auto"
-                  >
-                    BUY NOW <i className="fas fa-money-check-alt"></i>
-                  </button>
+                  <SvgButton className="text-secondary banner-description">
+                    BUY NOW
+                  </SvgButton>
                 </a>
               </div>
             </div>
@@ -257,7 +255,7 @@ const Details = () => {
               <form
                 id="Form"
                 className="my-5 p-4 rounded shadow mx-auto"
-                style={{ maxWidth: "50rem", backgroundColor: "#0000008c" }}
+                style={{ maxWidth: "50rem", backgroundColor: "#000000ba" }}
                 onSubmit={handleProductDateSubmit}
               >
                 <Typography

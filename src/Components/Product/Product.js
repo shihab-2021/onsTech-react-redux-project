@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 
 const Product = () => {
   const products = useSelector((state) => state.allProducts.products);
-  const renderList = products.map((product) => {
+  const showAbleProducts = products.slice(0, 10);
+  const renderList = showAbleProducts.map((product) => {
     const {
       _id,
       product_name,
@@ -23,7 +24,7 @@ const Product = () => {
         <div>
           <div className="card shadow" style={{ minHeight: "420px" }}>
             <div
-              style={{ minHeight: "200px" }}
+              style={{ minHeight: "215px" }}
               className="d-flex justify-content-center align-items-center"
             >
               <img src={image1} className="card-img img-fluid p-1" alt="..." />
@@ -39,18 +40,18 @@ const Product = () => {
                 readOnly
               />
             </div>
-            <div
-              className="text-center py-2"
-              style={{ backgroundColor: "#dbe3e3" }}
+            <Link
+              className="fw-bold"
+              style={{ textDecoration: "none", color: "goldenrod" }}
+              to={`/details/${_id}`}
             >
-              <Link
-                className="fw-bold"
-                style={{ textDecoration: "none", color: "goldenrod" }}
-                to={`/details/${_id}`}
+              <div
+                className="text-center py-2"
+                style={{ backgroundColor: "#dbe3e3" }}
               >
                 <i className="fas fa-info-circle"></i> Detail
-              </Link>
-            </div>
+              </div>
+            </Link>
           </div>
         </div>
       </div>

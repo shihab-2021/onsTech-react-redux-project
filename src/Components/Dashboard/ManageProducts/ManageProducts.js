@@ -43,77 +43,13 @@ const ManageProducts = () => {
         </div>
       )}
       {!isLoading && (
-        <div className="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-2 py-5">
+        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-2 py-5">
           {products.map((singleProduct) => (
-            // <div key={singleCar._id} className="col">
-            //   <div className="card shadow" style={{ minHeight: "680px" }}>
-            //     <div className="card bg-dark text-white">
-            //       <img
-            //         src={singleCar.image}
-            //         className="card-img img-fluid"
-            //         alt="..."
-            //       />
-            //       <div className="card-img-overlay p-0">
-            //         <div>
-            //           <div className="d-flex justify-content-between">
-            //             <p></p>
-            //             <h5
-            //               className="p-1 my-2"
-            //               style={{ backgroundColor: "#465c57" }}
-            //             >
-            //               <span className="text-danger">$</span>
-            //               {singleCar.car_price}
-            //             </h5>
-            //           </div>
-            //           <div className="footer">
-            //             <p className="my-0 mx-3 p-2">
-            //               ({singleCar.review} Reviews)
-            //               <br />
-            //               <Rating
-            //                 name="half-rating-read"
-            //                 value={`${singleCar.rating}`}
-            //                 precision={0.5}
-            //                 readOnly
-            //               />
-            //             </p>
-            //           </div>
-            //         </div>
-            //       </div>
-            //     </div>
-            //     <div className="card-body">
-            //       <h5 className="card-title">{singleCar.car_name}</h5>
-            //       <h6>Price: ${singleCar.car_price}</h6>
-            //       <p className="card-text fw-bold text-secondary pt-2">
-            //         {singleCar?.detail?.slice(0, 250)}{" "}
-            //         <Link to={`/details/${singleCar._id}`}>
-            //           <small>...show more</small>
-            //         </Link>
-            //       </p>
-            //     </div>
-            //     <div className="d-flex" style={{ backgroundColor: "#dbe3e3" }}>
-            //       <Link
-            //         to={`/details/${singleCar._id}`}
-            //         className="w-50 text-center my-2 link"
-            //       >
-            //         <button className="btn btn-outline-success">
-            //           Detail <i className="fas fa-info-circle"></i>
-            //         </button>
-            //       </Link>
-            //       <button
-            //         onClick={() => handleDeleteProduct(singleCar._id)}
-            //         type="button"
-            //         className="align-self-center btn btn-outline-danger mx-auto"
-            //       >
-            //         Delete <i className="fa-solid fa-trash-can"></i>
-            //       </button>
-            //     </div>
-            //   </div>
-            // </div>
             <div key={singleProduct._id} className="col">
               <div>
-                <div className="card shadow" style={{ minHeight: "500px" }}>
+                <div className="card shadow" style={{ minHeight: "515px" }}>
                   <div
-                    style={{ minHeight: "200px" }}
+                    style={{ minHeight: "300px" }}
                     className="d-flex justify-content-center align-items-center"
                   >
                     <img
@@ -135,7 +71,7 @@ const ManageProducts = () => {
                       readOnly
                     />
                   </div>
-                  <div
+                  {/* <div
                     className="text-center py-2"
                     style={{ backgroundColor: "#dbe3e3" }}
                   >
@@ -146,6 +82,26 @@ const ManageProducts = () => {
                     >
                       <i className="fas fa-info-circle"></i> Detail
                     </Link>
+                  </div> */}
+                  <div
+                    className="d-flex"
+                    style={{ backgroundColor: "#dbe3e3" }}
+                  >
+                    <Link
+                      to={`/details/${singleProduct._id}`}
+                      className="w-50 text-center my-2 link"
+                    >
+                      <button className="btn btn-outline-success">
+                        Detail <i className="fas fa-info-circle"></i>
+                      </button>
+                    </Link>
+                    <button
+                      onClick={() => handleDeleteProduct(singleProduct._id)}
+                      type="button"
+                      className="align-self-center btn btn-outline-danger mx-auto"
+                    >
+                      Delete <i className="fa-solid fa-trash-can"></i>
+                    </button>
                   </div>
                 </div>
               </div>
