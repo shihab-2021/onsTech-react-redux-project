@@ -39,7 +39,14 @@ function App() {
               </PrivateRoute>
             }
           />
-          <Route path="/details/:productId" element={<Details />} />
+          <Route
+            path="/details/:productId"
+            element={
+              <PrivateRoute>
+                <Details />
+              </PrivateRoute>
+            }
+          />
           <Route
             path="/dashboard"
             element={

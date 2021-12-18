@@ -19,6 +19,8 @@ import useAuth from "../Hooks/useAuth";
 import Review from "../Dashboard/Review/Review";
 import "./Details.css";
 import HomeCarousel from "../Home/HomeCarousel/HomeCarousel";
+import Contact from "../Home/Contact/Contact";
+import Footer from "../Home/Footer/Footer";
 
 const Details = () => {
   const [image, setImage] = useState("");
@@ -94,6 +96,7 @@ const Details = () => {
       dispatch(removeSelectedProduct());
     };
   }, [productId]);
+
   return (
     <div>
       {!product_name && (
@@ -103,6 +106,9 @@ const Details = () => {
       )}
       {product_name && (
         <div>
+          <div id="detail-carousel" className="pb-1">
+            <HomeCarousel></HomeCarousel>
+          </div>
           <section className="container py-4">
             <h2 style={{ fontFamily: `"Yanone Kaffeesatz", sans-serif` }}>
               <small>
@@ -244,13 +250,14 @@ const Details = () => {
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center center",
               backgroundSize: "cover",
+              backgroundAttachment: "fixed",
             }}
           >
             <div id="buyNow" className="container">
               <form
                 id="Form"
-                className="my-5 p-4 rounded shadow mx-auto text-light"
-                style={{ maxWidth: "50rem", backgroundColor: "#ffffff8c" }}
+                className="my-5 p-4 rounded shadow mx-auto"
+                style={{ maxWidth: "50rem", backgroundColor: "#0000008c" }}
                 onSubmit={handleProductDateSubmit}
               >
                 <Typography
@@ -276,7 +283,7 @@ const Details = () => {
                   Thank you.
                 </Typography>
                 <TextField
-                  sx={{ width: "95%", m: 1 }}
+                  sx={{ width: "95%", m: 1, input: { color: "white" } }}
                   id="standard-basic"
                   label="Your Name"
                   focused
@@ -286,7 +293,7 @@ const Details = () => {
                   variant="standard"
                 />
                 <TextField
-                  sx={{ width: "95%", m: 1 }}
+                  sx={{ width: "95%", m: 1, input: { color: "white" } }}
                   id="standard-basic"
                   label="Your Email"
                   color="success"
@@ -299,24 +306,28 @@ const Details = () => {
                   We will take your name and email by default.
                 </div>
                 <TextField
-                  sx={{ width: "95%", m: 1 }}
+                  sx={{ width: "95%", m: 1, input: { color: "white" } }}
                   id="standard-basic"
                   label="Phone"
                   color="success"
                   name="phone"
                   required
+                  placeholder="Please Enter Your Phone Number"
                   onBlur={handleOnBlur}
                   variant="standard"
+                  focused
                 />
                 <TextField
-                  sx={{ width: "95%", m: 1 }}
+                  sx={{ width: "95%", m: 1, input: { color: "white" } }}
                   id="standard-basic"
                   color="success"
                   required
+                  placeholder="Please Enter Your Location"
                   label="Your Location"
                   name="location"
                   onBlur={handleOnBlur}
                   variant="standard"
+                  focused
                 />
 
                 <Button
@@ -333,62 +344,16 @@ const Details = () => {
               </form>
             </div>
           </div>
-          <div className="py-5 my-5">
-            <HomeCarousel></HomeCarousel>
-          </div>
-          <div className=" py-3" style={{ backgroundColor: "#dbe3e3" }}>
+          <div className=" py-3" style={{ backgroundColor: "#fff" }}>
             <div>
               <Review></Review>
             </div>
           </div>
-          <div className="container my-5">
-            <div className="row">
-              <div className="col-sm-12 col-md-6">
-                <div className="card shadow ">
-                  <div className="card-body">
-                    <h1 className="card-title">Contact Us</h1>
-                    <hr className="w-50 text-danger p-1 rounded-pill" />
-                    <br />
-                    <h5 className="card-text">Phone : +(143) 1846-367</h5>
-                    <br />
-                    <h5 className="card-text">Office : +(423) 4805-567</h5>
-                    <br />
-                    <h5 className="card-text">E-mail : onsTech@yahoo.com</h5>
-                    <br />
-                    <h5>
-                      Social :
-                      <i
-                        className="fa-brands fa-facebook-f mx-2 text-primary"
-                        aria-hidden="true"
-                      ></i>
-                      <i
-                        className="fa-brands fa-twitter mx-2 text-info"
-                        aria-hidden="true"
-                      ></i>
-                      <i
-                        className="fa-brands fa-instagram mx-2 text-danger"
-                        aria-hidden="true"
-                      ></i>
-                      <i className="fa fa-envelope mx-2" aria-hidden="true"></i>
-                    </h5>
-                    <br />
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-6 pe-2 d-flex align-items-center justify-content-center">
-                <div className="p-4 bgBlue mt-5 d-flex">
-                  <div className="imgIcon me-4">
-                    <i className="fa fa-phone" aria-hidden="true"></i>
-                  </div>
-                  <div className="text-light">
-                    <h3>
-                      Hotline <span className="text-danger">(24 hour)</span>
-                    </h3>
-                    <p>+003856543746</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div>
+            <Contact></Contact>
+          </div>
+          <div>
+            <Footer></Footer>
           </div>
         </div>
       )}
