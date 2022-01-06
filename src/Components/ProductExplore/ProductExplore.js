@@ -10,7 +10,7 @@ const ProductExplore = () => {
   const products = useSelector((state) => state);
   const dispatch = useDispatch();
   const [serviceCount, setServiceCount] = useState();
-  const url = "http://localhost:5000/products";
+  const url = "https://arcane-oasis-37685.herokuapp.com/products";
 
   useEffect(() => {
     fetch(url)
@@ -26,7 +26,9 @@ const ProductExplore = () => {
   }
   const fetchProducts = async () => {
     const response = await axios
-      .get(`http://localhost:5000/products?page=${page}&&size=${size}`)
+      .get(
+        `https://arcane-oasis-37685.herokuapp.com/products?page=${page}&&size=${size}`
+      )
       .catch((err) => {
         console.log("error", err);
       });
