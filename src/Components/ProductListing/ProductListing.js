@@ -13,7 +13,7 @@ const ProductListing = () => {
       .catch((err) => {
         console.log("error", err);
       });
-    dispatch(setProducts(response.data));
+    dispatch(setProducts(response.data.result));
   };
   useEffect(() => {
     fetchProducts();
