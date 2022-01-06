@@ -22,7 +22,7 @@ const Product = () => {
     return (
       <div key={_id} className="col">
         <div>
-          <div className="card shadow" style={{ minHeight: "420px" }}>
+          <div className="card shadow" style={{ minHeight: "450px" }}>
             <div
               style={{ minHeight: "215px" }}
               className="d-flex justify-content-center align-items-center"
