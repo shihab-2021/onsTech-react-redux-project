@@ -6,7 +6,7 @@ const ShowReview = () => {
   const [reviews, setReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    fetch("https://arcane-oasis-37685.herokuapp.com/reviews")
+    fetch("https://onstech-server-side-code.onrender.com/reviews")
       .then((res) => res.json())
       .then((data) => setReviews(data))
       .then(() => setIsLoading(false));

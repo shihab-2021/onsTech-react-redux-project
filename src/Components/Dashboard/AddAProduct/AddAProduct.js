@@ -22,7 +22,7 @@ const AddAProduct = () => {
   };
   const handleProductDateSubmit = (e) => {
     const product = { ...carData };
-    fetch("https://arcane-oasis-37685.herokuapp.com/products", {
+    fetch("https://onstech-server-side-code.onrender.com/products", {
       method: "POST",
       headers: {
         "content-type": "application/json",

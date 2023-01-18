@@ -9,7 +9,7 @@ const ProductListing = () => {
   const dispatch = useDispatch();
   const fetchProducts = async () => {
     const response = await axios
-      .get("https://arcane-oasis-37685.herokuapp.com/products")
+      .get("https://onstech-server-side-code.onrender.com/products")
       .catch((err) => {
         console.log("error", err);
       });

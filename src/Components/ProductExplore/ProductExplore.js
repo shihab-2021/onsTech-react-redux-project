@@ -10,7 +10,7 @@ const ProductExplore = () => {
   const products = useSelector((state) => state);
   const dispatch = useDispatch();
   const [serviceCount, setServiceCount] = useState();
-  const url = "https://arcane-oasis-37685.herokuapp.com/products";
+  const url = "https://onstech-server-side-code.onrender.com/products";
 
   useEffect(() => {
     fetch(url)
@@ -27,7 +27,7 @@ const ProductExplore = () => {
   const fetchProducts = async () => {
     const response = await axios
       .get(
-        `https://arcane-oasis-37685.herokuapp.com/products?page=${page}&&size=${size}`
+        `https://onstech-server-side-code.onrender.com/products?page=${page}&&size=${size}`
       )
       .catch((err) => {
         console.log("error", err);

@@ -63,7 +63,7 @@ const Details = () => {
       condition: "pending",
       product_Detail: product,
     };
-    fetch("https://arcane-oasis-37685.herokuapp.com/booking", {
+    fetch("https://onstech-server-side-code.onrender.com/booking", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -83,7 +83,9 @@ const Details = () => {
   };
   const fetchProductDetail = async () => {
     const response = await axios
-      .get(`https://arcane-oasis-37685.herokuapp.com/products/${productId}`)
+      .get(
+        `https://onstech-server-side-code.onrender.com/products/${productId}`
+      )
       .catch((err) => {
         console.log("error ", err);
       });

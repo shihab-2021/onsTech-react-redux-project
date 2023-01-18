@@ -8,7 +8,7 @@ const ManageProducts = () => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    fetch("https://arcane-oasis-37685.herokuapp.com/products")
+    fetch("https://onstech-server-side-code.onrender.com/products")
       .then((res) => res.json())
       .then((data) => setProducts(data))
       .then(() => setIsLoading(false));
@@ -17,7 +17,7 @@ const ManageProducts = () => {
     const proceed = window.confirm("Are you sure, you want to delete?", id);
     console.log(id);
     if (proceed) {
-      const url = `https://arcane-oasis-37685.herokuapp.com/products/${id}`;
+      const url = `https://onstech-server-side-code.onrender.com/products/${id}`;
       fetch(url, {
         method: "DELETE",
       })

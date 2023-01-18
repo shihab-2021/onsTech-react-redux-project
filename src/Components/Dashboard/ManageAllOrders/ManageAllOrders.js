@@ -16,13 +16,13 @@ export default function ManageAllOrders() {
   const [userOrders, setUserOrders] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
   React.useEffect(() => {
-    fetch("https://arcane-oasis-37685.herokuapp.com/allBooking")
+    fetch("https://onstech-server-side-code.onrender.com/allBooking")
       .then((res) => res.json())
       .then((data) => setUserOrders(data))
       .then(() => setIsLoading(false));
   }, []);
   const handleUpdateUser = (id) => {
-    const url = `https://arcane-oasis-37685.herokuapp.com/booking/${id}`;
+    const url = `https://onstech-server-side-code.onrender.com/booking/${id}`;
     fetch(url, {
       method: "PUT",
       headers: {
@@ -35,7 +35,7 @@ export default function ManageAllOrders() {
           alert("Update Successful");
         }
         console.log(data);
-        fetch("https://arcane-oasis-37685.herokuapp.com/allBooking")
+        fetch("https://onstech-server-side-code.onrender.com/allBooking")
           .then((res) => res.json())
           .then((data) => setUserOrders(data));
       });
@@ -43,7 +43,7 @@ export default function ManageAllOrders() {
   const handleDeleteUserService = (id) => {
     const proceed = window.confirm("Are you sure, you want to delete?", id);
     if (proceed) {
-      const url = `https://arcane-oasis-37685.herokuapp.com/booking/${id}`;
+      const url = `https://onstech-server-side-code.onrender.com/booking/${id}`;
       fetch(url, {
         method: "DELETE",
       })

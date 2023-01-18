@@ -7,7 +7,7 @@ const AdminRoute = ({ children, ...rest }) => {
   const { user, admin, isLoading } = useAuth();
   // const { admin, setAdmin } = useState(false);
   // useEffect(() => {
-  //   fetch(`https://arcane-oasis-37685.herokuapp.com/users/${user.email}`)
+  //   fetch(`https://onstech-server-side-code.onrender.com/users/${user.email}`)
   //     .then((res) => res.json())
   //     .then((data) => setAdmin(data.admin));
   // }, [user.email]);
